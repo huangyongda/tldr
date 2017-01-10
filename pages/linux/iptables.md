@@ -1,5 +1,4 @@
 # iptables
->  /proc/sys/net/ipv4/ip_forward，该文件内容为0，表示禁止数据包转发，1表示允许
 > Program that allows to configure tables, chains and rules provided by the Linux kernel firewall.
 
 - See chains and rules for specific table:
@@ -27,6 +26,7 @@
 `sudo iptables-save > {{path/to/iptables_file}}`
 
 
+- config file : /proc/sys/net/ipv4/ip_forward，该文件内容为0，表示禁止数据包转发，1表示允许
 - 端口转发  demo: 转发 192.168.1.147 的 43999端口转到22端口 实现用43999登录ssh
 
 `iptables -t nat -A PREROUTING -p tcp -i eth0 -d 192.168.1.147 --dport 43999 -j DNAT --to 192.168.1.147:22`
