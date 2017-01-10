@@ -26,6 +26,21 @@
 
 `ctrl+b d`
 
-- Kill session:
+- Kill session: 结束指定会话
 
-`tmux kill-session -t {{name}}`
+`tmux kill-session -t {{name}}` 
+
+-选择会话 
+`ctrl+b s`
+
+-选择会话
+`ctrl+b w`
+
+-更改名称
+`ctrl+b ,`
+
+-创建新的子会话
+`ctrl+b c`
+
+-删除当前子会话
+`ctrl+b x`
