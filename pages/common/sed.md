@@ -25,3 +25,12 @@
 - Replace separator / by any other character not used in the find or replace patterns, e.g., #:
 
 `sed 's#{{find}}#{{replace}}#' {{filename}}`
+
+
+- sed -i "s/原字符串/新字符串/g" `grep 原字符串 -rl 所在目录` 
+
+- 例如：我要把mahuinan替换为huinanma，执行命令：
+
+`sed -i "s/mahuinan/huinanma/g" 'grep mahuinan -rl /www' `
+
+
