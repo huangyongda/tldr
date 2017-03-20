@@ -31,6 +31,10 @@
 
 `iptables -t nat -A PREROUTING -p tcp -i eth0 -d 192.168.1.147 --dport 43999 -j DNAT --to 192.168.1.147:22`
 
+- 端口转发  demo: 转发 192.168.11.105 的 9001端口转到9000端口
+
+`iptables -t nat -A PREROUTING -d 192.168.11.105 -p tcp --dport 9001 -j DNAT --to 192.168.11.105:9000`
+
 - 端口转发   ip伪装
 
 `iptables -t nat -A POSTROUTING -j MASQUERADE`
