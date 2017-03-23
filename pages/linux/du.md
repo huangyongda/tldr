@@ -10,7 +10,7 @@
 
 `du -h {{path/to/folder}}`
 
-- Show the size of a single folder, in human readable units:
+- Show the size of a single folder, in human readable units(只显示目录大小):
 
 `du -sh {{path/to/folder}}`
 
