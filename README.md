@@ -1,5 +1,13 @@
 # tldr
 
+##linux shell安装
+
+```
+mkdir -p ~/bin
+curl -o ~/bin/tldr https://raw.githubusercontent.com/huangyongda/tldr/master/tldr
+chmod +x ~/bin/tldr
+```
+
 [![Build status][travis-image]][travis-url]
 [![Gitter chat][gitter-image]][gitter-url]
 [![Merged PRs][prs-merged-image]][prs-merged-url]
