@@ -106,7 +106,7 @@ and go ahead!
   Bro pages show concise, common-case examples for Unix commands.
   The examples are submitted by the user base, and can be voted up or down; the best entries are what people see first when they look up a command.
 
-## What does "tldr" mean?
+## What does "tldr" mean? 
 
 TL;DR stands for "Too Long; Didn't Read".
 It originates in Internet slang, where it is used to indicate parts of the text skipped as too lengthy.
