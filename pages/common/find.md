@@ -64,13 +64,13 @@ find . -type f -name "*" | xargs grep "140.206.111.111"
 # 在/home目录下查找以.txt结尾的文件名
 find /home -name "*.txt"
 
-#同上，但忽略大小写
+# 同上，但忽略大小写
 find /home -iname "*.txt"
 
-#基于正则表达式匹配文件路径
+# 基于正则表达式匹配文件路径
 find . -regex ".*\(\.txt\|\.pdf\)$"
 
-#找出/home下不是以.txt结尾的文件
+# 找出/home下不是以.txt结尾的文件
 find /home ! -name "*.txt"
 
 根据文件时间戳进行搜索
@@ -80,19 +80,19 @@ UNIX/Linux文件系统每个文件都有三种时间戳：
 修改时间 （-mtime/天，-mmin/分钟）：文件最后一次修改时间。
 变化时间 （-ctime/天，-cmin/分钟）：文件数据元（例如权限等）最后一次修改时间。
 
-#搜索最近七天内被访问过的所有文件
+# 搜索最近七天内被访问过的所有文件
 find . -type f -atime -7
 
-搜索恰好在七天前被访问过的所有文件
+# 搜索恰好在七天前被访问过的所有文件
 find . -type f -atime 7
 
-#搜索超过七天内被访问过的所有文件
+# 搜索超过七天内被访问过的所有文件
 find . -type f -atime +7
 
-#搜索访问时间超过10分钟的所有文件
+# 搜索访问时间超过10分钟的所有文件
 find . -type f -amin +10
 
-#根据文件大小进行匹配
+# 根据文件大小进行匹配
 find . -type f -size 文件大小单元
 
 文件大小单元：
@@ -104,48 +104,48 @@ k —— 千字节
 M —— 兆字节
 G —— 吉字节
 
-#搜索大于10KB的文件
+# 搜索大于10KB的文件
 find . -type f -size +10k
 
-#搜索小于10KB的文件
+# 搜索小于10KB的文件
 find . -type f -size -10k
 
-#搜索等于10KB的文件
+# 搜索等于10KB的文件
 find . -type f -size 10k
 
-#删除当前目录下所有.txt文件
+# 删除当前目录下所有.txt文件
 find . -type f -name "*.txt" -delete
 
-#当前目录下搜索出权限为777的文件
+# 当前目录下搜索出权限为777的文件
 find . -type f -perm 777
 
-#找出当前目录用户tom拥有的所有文件
+# 找出当前目录用户tom拥有的所有文件
 find . -type f -user tom
 
-#找出当前目录用户组sunk拥有的所有文件
+# 找出当前目录用户组sunk拥有的所有文件
 find . -type f -group sunk
 
 借助-exec选项与其他命令结合使用
-#找出当前目录下所有root的文件，并把所有权更改为用户tom
+# 找出当前目录下所有root的文件，并把所有权更改为用户tom
 find .-type f -user root -exec chown tom {} \;
 
 上例中， {} 用于与 -exec 选项结合使用来匹配所有文件，然后会被替换为相应的文件名。
-#找出自己家目录下所有的.txt文件并删除
+# 找出自己家目录下所有的.txt文件并删除
 find $HOME/. -name "*.txt" -ok rm {} \;
 
 上例中， -ok 和 -exec 行为一样，不过它会给出提示，是否执行相应的操作。
-#查找当前目录下所有.txt文件并把他们拼接起来写入到all.txt文件中
+# 查找当前目录下所有.txt文件并把他们拼接起来写入到all.txt文件中
 find . -type f -name "*.txt" -exec cat {} \;> all.txt
 
-#将30天前的.log文件移动到old目录中
+# 将30天前的.log文件移动到old目录中
 find . -type f -mtime +30 -name "*.log" -exec cp {} old \;
 
-#因为单行命令中-exec参数中无法使用多个命令，以下方法可以实现在-exec之后接受多条命令
+# 因为单行命令中-exec参数中无法使用多个命令，以下方法可以实现在-exec之后接受多条命令
 -exec ./text.sh {} \;
 
-#查找当前目录或者子目录下所有.txt文件，但是跳过子目录sk
+# 查找当前目录或者子目录下所有.txt文件，但是跳过子目录sk
 find . -path "./sk" -prune -o -name "*.txt" -print
 
-#要列出所有长度为零的文件
+# 要列出所有长度为零的文件
 find . -empty
 
