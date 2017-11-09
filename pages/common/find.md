@@ -147,6 +147,6 @@ find . -type f -mtime +30 -name "*.log" -exec cp {} old \;
 # 查找当前目录或者子目录下所有.txt文件，但是跳过子目录sk
 find . -path "./sk" -prune -o -name "*.txt" -print
 
-# 要列出所有长度为零的文件
+# 要列出当前目录下有长度为零的文件
 find . -empty
 
