@@ -1,32 +1,58 @@
 # tar
 
-> Archiving utility.
-> Often combined with a compression method, such as gzip or bzip.
+选项
 
-- Create an archive from files:
+-A或--catenate：新增文件到以存在的备份文件；
+-B：设置区块大小；
+-c或--create：建立新的备份文件；
+-C <目录>：这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项。
+-d：记录文件的差别；
+-x或--extract或--get：从备份文件中还原文件；
+-t或--list：列出备份文件的内容；
+-z或--gzip或--ungzip：通过gzip指令处理备份文件；
+-Z或--compress或--uncompress：通过compress指令处理备份文件；
+-f<备份文件>或--file=<备份文件>：指定备份文件；
+-v或--verbose：显示指令执行过程；
+-r：添加文件到已经压缩的文件；
+-u：添加改变了和现有的文件到已经存在的压缩文件；
+-j：支持bzip2解压文件；
+-v：显示操作过程；
+-l：文件系统边界设置；
+-k：保留原有文件不覆盖；
+-m：保留文件不被覆盖；
+-w：确认压缩文件的正确性；
+-p或--same-permissions：用原来的文件权限还原文件；
+-P或--absolute-names：文件名使用绝对名称，不移除文件名称前的“/”号；
+-N <日期格式> 或 --newer=<日期时间>：只将较指定日期更新的文件保存到备份文件里；
+--exclude=<范本样式>：排除符合范本样式的文件。
+参数
 
-`tar cf {{target.tar}} {{file1 file2 file3}}`
+文件或目录：指定要打包的文件或目录列表。
 
-- Create a gzipped archive:
+实例
 
-`tar czf {{target.tar.gz}} {{file1 file2 file3}}`
+- z：有gzip属性的
+- j：有bz2属性的
+- Z：有compress属性的
+- v：显示所有过程
+- O：将文件解开到标准输出
+下面的参数-f是必须的
 
-- Extract an archive in a target folder:
+-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。
 
-`tar xf {{source.tar}} -C {{folder}}`
+tar -cf all.tar *.jpg
+# （压缩）这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
 
-- Extract a gzipped archive in the current directory:
+tar -rf all.tar *.gif
+# 这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。
 
-`tar xzf {{source.tar.gz}}`
+tar -uf all.tar logo.gif
+# 这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。
 
-- Extract a bzipped archive in the current directory:
+tar -tf all.tar
+# 这条命令是列出all.tar包中所有文件，-t是列出文件的意思
 
-`tar xjf {{source.tar.bz2}}`
+tar -xf all.tar
+#这条命令是解出all.tar包中所有文件，-t是解开的意思
 
-- Create a compressed archive, using archive suffix to determine the compression program:
 
-`tar caf {{target.tar.xz}} {{file1 file2 file3}}`
-
-- List the contents of a tar file:
-
-`tar tvf {{source.tar}}`
